@@ -1,0 +1,5 @@
+# Django (servidor-ssr/): solo corre en local, no se sube su entorno ni su base de datos
+servidor-ssr*/venv/
+servidor-ssr*/db.sqlite3
+**/__pycache__/
+node_modules/

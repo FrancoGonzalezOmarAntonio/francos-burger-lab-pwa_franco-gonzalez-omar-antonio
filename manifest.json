@@ -1,0 +1,33 @@
+{
+  "id": "./",
+  "name": "Franco's Burger Lab",
+  "short_name": "Burger Lab",
+  "description": "Hamburguesas smash, papas y malteadas hechas al momento",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "categories": ["food", "shopping"],
+  "background_color": "#fdf6ec",
+  "theme_color": "#3a2018",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

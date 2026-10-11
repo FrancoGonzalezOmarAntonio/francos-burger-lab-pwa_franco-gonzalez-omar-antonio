@@ -1,0 +1,17 @@
+[
+  {"id":1,"nombre":"Clásica Lab","categoria":"Hamburguesas","precio":135,"stock":20,"imagen":"img/clasica-lab.jpg"},
+  {"id":2,"nombre":"Doble smash","categoria":"Hamburguesas","precio":165,"stock":20,"imagen":"img/doble-smash.jpg"},
+  {"id":3,"nombre":"BBQ bacon","categoria":"Hamburguesas","precio":170,"stock":20,"imagen":"img/bbq-bacon.jpg"},
+  {"id":4,"nombre":"Jalapeño fire","categoria":"Hamburguesas","precio":160,"stock":20,"imagen":"img/jalapeno-fire.jpg"},
+  {"id":5,"nombre":"Hawaiana","categoria":"Hamburguesas","precio":150,"stock":20,"imagen":"img/hawaiana.jpg"},
+  {"id":6,"nombre":"Papas a la francesa","categoria":"Acompañamientos","precio":55,"stock":20,"imagen":"img/papas-a-la-francesa.jpg"},
+  {"id":7,"nombre":"Papas gajo con queso","categoria":"Acompañamientos","precio":75,"stock":20,"imagen":"img/papas-gajo-con-queso.jpg"},
+  {"id":8,"nombre":"Aros de cebolla","categoria":"Acompañamientos","precio":65,"stock":20,"imagen":"img/aros-de-cebolla.jpg"},
+  {"id":9,"nombre":"Boneless (6 pzs)","categoria":"Acompañamientos","precio":95,"stock":20,"imagen":"img/boneless-6-pzs.jpg"},
+  {"id":10,"nombre":"Papas trufadas","categoria":"Acompañamientos","precio":85,"stock":20,"imagen":"img/papas-trufadas.jpg"},
+  {"id":11,"nombre":"Malteada de vainilla","categoria":"Bebidas y postres","precio":70,"stock":20,"imagen":"img/malteada-de-vainilla.jpg"},
+  {"id":12,"nombre":"Malteada Oreo","categoria":"Bebidas y postres","precio":80,"stock":20,"imagen":"img/malteada-oreo.jpg"},
+  {"id":13,"nombre":"Limonada mineral","categoria":"Bebidas y postres","precio":45,"stock":20,"imagen":"img/limonada-mineral.jpg"},
+  {"id":14,"nombre":"Refresco","categoria":"Bebidas y postres","precio":35,"stock":20,"imagen":"img/refresco.jpg"},
+  {"id":15,"nombre":"Brownie con helado","categoria":"Bebidas y postres","precio":75,"stock":20,"imagen":"img/brownie-con-helado.jpg"}
+]
