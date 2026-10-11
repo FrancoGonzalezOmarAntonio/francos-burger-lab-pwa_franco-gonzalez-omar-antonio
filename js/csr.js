@@ -26,12 +26,17 @@ function crearTarjeta(producto) {
 
   // usamos el propio objeto "producto" para llenar el texto (sin plantillas de servidor)
   tarjeta.innerHTML = `
-    <img class="producto__foto" src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
+    <div class="producto__media">
+      <img class="producto__foto" src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
+      <span class="producto__etiqueta">${producto.categoria}</span>
+    </div>
     <div class="producto__info">
       <strong>${producto.nombre}</strong>
-      <span class="precio">$${producto.precio}</span>
       <p>Disponibles: ${producto.stock}</p>
-      <button type="button" data-id="${producto.id}">Agregar</button>
+      <div class="producto__pie">
+        <span class="precio">$${producto.precio}</span>
+        <button type="button" data-id="${producto.id}"><span aria-hidden="true">+</span> Agregar</button>
+      </div>
     </div>
   `;
 

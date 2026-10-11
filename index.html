@@ -11,9 +11,14 @@
   <!-- Estas líneas convierten el sitio en una PWA instalable.
        Avance 1: manifest.json e icons/icon.svg aún no se activan (se activan en avance 3). -->
   <!-- <link rel="manifest" href="manifest.json"> -->
-  <meta name="theme-color" content="#3a2018">
+  <meta name="theme-color" content="#2b1711">
   <!-- <link rel="icon" href="icons/icon.svg" type="image/svg+xml"> -->
   <link rel="icon" href="icons/logo_franco-gonzalez-omar-antonio_96c097726f.png" type="image/png">
+
+  <!-- Tipografías de la marca: Bebas Neue (títulos estilo letrero) y Poppins (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&display=swap">
 
   <link rel="stylesheet" href="css/estilos.css">
 
@@ -30,29 +35,62 @@
        cambian (los llena JavaScript, ver csr.js). -->
 
   <header class="appbar">
-    <div class="marca">
+    <a class="marca" href="#inicio">
       <img class="marca__logo" src="icons/logo_franco-gonzalez-omar-antonio_96c097726f.png"
-           alt="Logo de Franco's Burger Lab" width="56" height="56">
-      <div>
+           alt="Logo de Franco's Burger Lab" width="52" height="52">
+      <div class="marca__texto">
         <h1>Franco's Burger Lab</h1>
-        <p class="marca__lema">Hamburguesas smash hechas al momento</p>
+        <span class="marca__lema">Since 2026 · Hermosillo</span>
       </div>
-    </div>
+    </a>
+    <nav class="appbar__nav" aria-label="Secciones">
+      <a href="#menu">Menú</a>
+      <a href="#carrito">Carrito</a>
+      <a href="#ubicacion">Ubicación</a>
+    </nav>
     <!-- este <span> lo actualiza app.js para mostrar conectado/sin conexión -->
     <span id="estado-conexion" class="pill">conectado</span>
   </header>
 
-  <!-- Banner de bienvenida: también es parte del App Shell (no cambia) -->
-  <div class="hero">
-    <p class="hero__etiqueta">Hermosillo, Sonora</p>
-    <h2 class="hero__titulo">Smash burgers hechas al momento</h2>
-    <p class="hero__texto">Carne 100% res, pan brioche tostado y papas recién hechas.</p>
+  <!-- Banner principal (hero): también es parte del App Shell (no cambia) -->
+  <div class="hero" id="inicio">
+    <div class="hero__contenido">
+      <p class="hero__etiqueta">🔥 Recién salidas de la plancha</p>
+      <h2 class="hero__titulo">Smash burgers <span>hechas al momento</span></h2>
+      <p class="hero__texto">Carne 100% de res aplastada a la plancha, pan brioche tostado,
+        papas recién hechas y malteadas cremosas.</p>
+      <div class="hero__acciones">
+        <a class="boton boton--primario" href="#menu">Ver el menú</a>
+        <a class="boton boton--secundario" href="#ubicacion">¿Dónde estamos?</a>
+      </div>
+      <ul class="hero__datos">
+        <li><strong>15</strong> productos</li>
+        <li><strong>3</strong> categorías</li>
+        <li><strong>desde $35</strong></li>
+      </ul>
+    </div>
+    <div class="hero__imagen">
+      <img src="img/doble-smash.jpg" alt="Hamburguesa doble smash con queso" width="447" height="447">
+      <span class="hero__sello">Doble<br>smash<br><strong>$165</strong></span>
+    </div>
+  </div>
+
+  <!-- Franja decorativa con el lema de la marca -->
+  <div class="franja" aria-hidden="true">
+    <div class="franja__texto">
+      <span>SMASH</span> ★ <span>MELT</span> ★ <span>REPEAT</span> ★ <span>SMASH</span> ★ <span>MELT</span> ★ <span>REPEAT</span> ★
+      <span>SMASH</span> ★ <span>MELT</span> ★ <span>REPEAT</span> ★ <span>SMASH</span> ★ <span>MELT</span> ★ <span>REPEAT</span> ★
+    </div>
   </div>
 
   <main>
     <!-- ---- Sección 1: Catálogo (CSR) ---- -->
-    <section class="menu">
-      <h2>Nuestro menú</h2>
+    <section class="menu" id="menu">
+      <div class="seccion__encabezado">
+        <p class="seccion__kicker">La carta</p>
+        <h2>Nuestro menú</h2>
+        <p class="seccion__sub">Elige tu combinación favorita. Todo se prepara al momento.</p>
+      </div>
       <!-- Botones de acceso rápido a cada categoría: csr.js los crea a partir de catalogo.json -->
       <nav id="categorias" class="categorias" aria-label="Categorías del menú"></nav>
       <!-- Este div empieza VACÍO a propósito: si ves el código fuente (Ctrl+U)
@@ -64,68 +102,84 @@
       <div id="catalogo" aria-busy="true" aria-label="Cargando catálogo">
         <div class="grid">
           <div class="producto producto--cargando" aria-hidden="true">
-            <div class="producto__foto"></div>
+            <div class="producto__media"><div class="producto__foto"></div></div>
             <div class="producto__info">
-              <strong>&nbsp;</strong> <span class="precio">&nbsp;</span> <p>&nbsp;</p>
-              <button type="button" disabled>Agregar</button>
+              <strong>&nbsp;</strong> <p>&nbsp;</p>
+              <div class="producto__pie"><span class="precio">&nbsp;</span><button type="button" disabled>Agregar</button></div>
             </div>
           </div>
           <div class="producto producto--cargando" aria-hidden="true">
-            <div class="producto__foto"></div>
+            <div class="producto__media"><div class="producto__foto"></div></div>
             <div class="producto__info">
-              <strong>&nbsp;</strong> <span class="precio">&nbsp;</span> <p>&nbsp;</p>
-              <button type="button" disabled>Agregar</button>
+              <strong>&nbsp;</strong> <p>&nbsp;</p>
+              <div class="producto__pie"><span class="precio">&nbsp;</span><button type="button" disabled>Agregar</button></div>
             </div>
           </div>
           <div class="producto producto--cargando" aria-hidden="true">
-            <div class="producto__foto"></div>
+            <div class="producto__media"><div class="producto__foto"></div></div>
             <div class="producto__info">
-              <strong>&nbsp;</strong> <span class="precio">&nbsp;</span> <p>&nbsp;</p>
-              <button type="button" disabled>Agregar</button>
+              <strong>&nbsp;</strong> <p>&nbsp;</p>
+              <div class="producto__pie"><span class="precio">&nbsp;</span><button type="button" disabled>Agregar</button></div>
             </div>
           </div>
           <div class="producto producto--cargando" aria-hidden="true">
-            <div class="producto__foto"></div>
+            <div class="producto__media"><div class="producto__foto"></div></div>
             <div class="producto__info">
-              <strong>&nbsp;</strong> <span class="precio">&nbsp;</span> <p>&nbsp;</p>
-              <button type="button" disabled>Agregar</button>
+              <strong>&nbsp;</strong> <p>&nbsp;</p>
+              <div class="producto__pie"><span class="precio">&nbsp;</span><button type="button" disabled>Agregar</button></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ---- Sección 2: Carrito ---- -->
-    <section>
-      <h2>Carrito</h2>
-      <ul id="carrito-lista"></ul>
-      <p>Total: $<span id="carrito-total">0</span></p>
-      <button id="btn-sincronizar" type="button">Sincronizar carrito</button>
-      <p id="carrito-mensaje" class="mensaje"></p>
-    </section>
+    <div class="paneles">
+      <!-- ---- Sección 2: Carrito ---- -->
+      <section class="panel" id="carrito">
+        <h2><span aria-hidden="true">🛒</span> Tu pedido</h2>
+        <ul id="carrito-lista"></ul>
+        <p class="carrito-total">Total: <strong>$<span id="carrito-total">0</span></strong></p>
+        <button id="btn-sincronizar" type="button">Sincronizar carrito</button>
+        <p id="carrito-mensaje" class="mensaje"></p>
+      </section>
 
-    <!-- ---- Sección 3: Notificaciones ---- -->
-    <section>
-      <h2>Notificaciones de promociones</h2>
-      <button id="btn-notificar" type="button">Activar notificaciones</button>
-      <p id="notificaciones-mensaje" class="mensaje"></p>
-    </section>
+      <!-- ---- Sección 3: Notificaciones ---- -->
+      <section class="panel">
+        <h2><span aria-hidden="true">🔔</span> Promociones</h2>
+        <p class="panel__texto">Activa las notificaciones y entérate primero de los combos y descuentos.</p>
+        <button id="btn-notificar" type="button">Activar notificaciones</button>
+        <p id="notificaciones-mensaje" class="mensaje"></p>
+      </section>
 
-    <!-- ---- Sección 4: Ubicación (característica del dispositivo) ---- -->
-    <section>
-      <h2>Distancia a la sucursal</h2>
-      <p class="sucursal-info">Sucursal única: <strong>Universidad Tecnológica de Hermosillo (UTH)</strong>, Hermosillo, Sonora.</p>
-      <button id="btn-ubicacion" type="button">Usar mi ubicación</button>
-      <p id="ubicacion-mensaje" class="mensaje"></p>
-      <!-- Empieza oculto: geolocalizacion.js le quita "hidden" y lo llena de mapa
-           en cuanto tiene tu ubicación y la ruta hasta la sucursal -->
-      <div id="mapa-ruta" class="mapa" hidden></div>
-    </section>
+      <!-- ---- Sección 4: Ubicación (característica del dispositivo) ---- -->
+      <section class="panel panel--ancho" id="ubicacion">
+        <h2><span aria-hidden="true">📍</span> Distancia a la sucursal</h2>
+        <p class="sucursal-info">Sucursal única: <strong>Universidad Tecnológica de Hermosillo (UTH)</strong>, Hermosillo, Sonora.</p>
+        <button id="btn-ubicacion" type="button">Usar mi ubicación</button>
+        <p id="ubicacion-mensaje" class="mensaje"></p>
+        <!-- Empieza oculto: geolocalizacion.js le quita "hidden" y lo llena de mapa
+             en cuanto tiene tu ubicación y la ruta hasta la sucursal -->
+        <div id="mapa-ruta" class="mapa" hidden></div>
+      </section>
+    </div>
   </main>
 
   <footer class="pie">
-    <p><strong>Franco's Burger Lab</strong> · Hermosillo, Sonora · Since 2026</p>
-    <p>Franco González Omar Antonio · PWA de ventas · Unidad 2</p>
+    <div class="pie__columnas">
+      <div>
+        <p class="pie__marca">Franco's Burger Lab</p>
+        <p>Smash burgers, papas y malteadas hechas al momento. Since 2026.</p>
+      </div>
+      <div>
+        <p class="pie__titulo">Visítanos</p>
+        <p>Universidad Tecnológica de Hermosillo (UTH)<br>Hermosillo, Sonora</p>
+      </div>
+      <div>
+        <p class="pie__titulo">Proyecto</p>
+        <p>Franco González Omar Antonio<br>IDGS10-1 · PWA de ventas · Unidad 2</p>
+      </div>
+    </div>
+    <p class="pie__legal">© 2026 Franco's Burger Lab</p>
   </footer>
 
   <!-- Cargamos los scripts al final del <body>: así el HTML ya existe
