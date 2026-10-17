@@ -1,5 +1,5 @@
-# Django (servidor-ssr/): solo corre en local, no se sube su entorno ni su base de datos
-servidor-ssr*/venv/
-servidor-ssr*/db.sqlite3
+# Django (servidor-FAGO/): solo corre en local, no se sube su entorno ni su base de datos
+servidor-FAGO/venv/
+servidor-FAGO/db.sqlite3
 **/__pycache__/
 node_modules/

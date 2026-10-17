@@ -30,7 +30,7 @@ def vista_ssr(request):
     request: el objeto que representa la petición que hizo el navegador.
 
     render() hace tres cosas:
-      1) toma la plantilla 'catalogo/catalogo_ssr.html'
+      1) toma la plantilla 'catalogo/catalogo_FGOA.html'
       2) le inyecta el diccionario de "contexto" (aquí: la lista de productos)
       3) devuelve el HTML final, YA CON LOS DATOS DENTRO, listo para el navegador.
 
