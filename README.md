@@ -55,7 +55,7 @@ Luego abre http://127.0.0.1:8000/catalogo/
 | Avance | Hash del commit entregado | Fecha |
 |---|---|---|
 | 1 | 2194f94 | 11/10/2026 |
-| 2 | | 18/10/2026 |
+| 2 | 7921438 | 18/10/2026 |
 | 3 | | 25/10/2026 |
 | 4 | (se escribe en el reporte PDF) | 01/11/2026 |
 
