@@ -8,12 +8,12 @@
        resultados de búsqueda (Lighthouse la revisa en la categoría SEO) -->
   <meta name="description" content="Hamburguesas smash, papas y malteadas hechas al momento en Franco's Burger Lab, Hermosillo.">
 
-  <!-- Estas líneas convierten el sitio en una PWA instalable.
-       Avance 1: manifest.json e icons/icon.svg aún no se activan (se activan en avance 3). -->
-  <!-- <link rel="manifest" href="manifest.json"> -->
+  <!-- Estas líneas convierten el sitio en una PWA instalable -->
+  <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#2b1711">
-  <!-- <link rel="icon" href="icons/icon.svg" type="image/svg+xml"> -->
-  <link rel="icon" href="icons/logo_franco-gonzalez-omar-antonio_96c097726f.png" type="image/png">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <!-- Ícono que usa iPhone/iPad al "Agregar a pantalla de inicio" -->
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
 
   <!-- Tipografías de la marca: Bebas Neue (títulos estilo letrero) y Poppins (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
 
   <!-- Leaflet: librería de mapas gratuita (sin API key) que usamos solo para
        dibujar la ruta hasta la sucursal (ver js/geolocalizacion.js) -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
 
@@ -184,24 +184,21 @@
 
   <!-- Cargamos los scripts al final del <body>: así el HTML ya existe
        cuando el JavaScript intenta buscar los elementos con document.getElementById.
-       Avance 2: carrito.js y csr.js están activos; los demás se activan conforme se crean. -->
+       Avance 3: todos los scripts están activos. -->
   <script src="js/carrito.js"></script>
   <script src="js/csr.js"></script>
-  <!-- <script src="js/notificaciones.js"></script> -->
+  <script src="js/notificaciones.js"></script>
   <!-- Leaflet debe cargar ANTES de geolocalizacion.js: ese script usa el
        objeto global "L" que esta librería crea -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script> -->
-  <!-- <script src="js/geolocalizacion.js"></script> -->
-  <!-- <script src="js/app.js"></script> -->
-  <!-- Registro del Service Worker. Va aquí, dentro del HTML y en una sola línea
-       (navigator.serviceWorker.register("sw.js")), porque así lo detecta PWABuilder.
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="js/geolocalizacion.js"></script>
+  <script src="js/app.js"></script>
+  <!-- Registro del Service Worker (sw.js lo genera Workbox). Va aquí, dentro del
+       HTML, en una sola línea y sin esperar al evento load, porque así lo detecta PWABuilder. -->
   <script>
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js")
-        .then((registro) => console.log("Service Worker registrado con éxito:", registro.scope))
-        .catch((error) => console.error("No se pudo registrar el Service Worker:", error));
+      navigator.serviceWorker.register("sw.js").then((registro) => console.log("Service Worker registrado:", registro.scope)).catch((error) => console.error("No se pudo registrar el Service Worker:", error));
     }
   </script>
-  -->
 </body>
 </html>

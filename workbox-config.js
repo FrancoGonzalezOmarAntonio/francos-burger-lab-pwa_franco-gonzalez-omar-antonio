@@ -8,6 +8,11 @@ module.exports = {
 	globIgnores: [
 		'**/node_modules/**/*',
 		'servidor-ssr*/**/*',
+		// tu servidor Django (SSR) se llama servidor-FAGO: incluye venv/ con miles de archivos
+		'servidor-FAGO/**/*',
+		// el propio Service Worker y su librería no se precachean a sí mismos
+		'sw.js',
+		'workbox-*.js',
 		'docs/**/*',
 		'**/*.report.html',
 		'reporte-lighthouse*.html',

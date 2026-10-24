@@ -26,10 +26,15 @@ catalogo.json     15 productos: id, nombre, categoria, precio, stock, imagen
 css/estilos.css   Paleta de marca y diseño responsivo
 js/csr.js         fetch() de catalogo.json, agrupado por categoría y pintado de tarjetas
 js/carrito.js     Carrito con localStorage: agregar, sumar/restar, quitar y total
-js/               notificaciones, geolocalización, app (se activan por avance)
+js/notificaciones.js  Permiso de notificaciones y aviso "Pedido agregado"
+js/geolocalizacion.js Ubicación del cliente y ruta (Leaflet + OSRM) a la sucursal UTH
+js/app.js         Píldora de estado conectado / sin conexión
+manifest.json     Nombre, colores de marca e íconos 192/512 de la PWA
+workbox-config.js Configuración de Workbox (qué archivos se precachean)
+sw.js             Service Worker generado por Workbox (+ workbox-XXXX.js y .map)
 icons/            Logo e íconos de la PWA
 img/              15 fotografías de los productos
-docs/             Capturas de "Ver código fuente" (SSR vs CSR)
+docs/             Capturas de "Ver código fuente" (SSR vs CSR, index.html y sw.js)
 servidor-FAGO/    Proyecto Django (SSR): app "catalogo" con los 15 productos
 ```
 
@@ -69,3 +74,11 @@ Luego abre http://127.0.0.1:8000/catalogo/
 
 ### CSR (JavaScript): el div del catálogo llega vacío
 ![Código fuente CSR](docs/captura-csr.png)
+
+## PWA: manifest y Service Worker
+
+### index.html con manifest, notificaciones, geolocalización y registro del Service Worker
+![Código fuente index.html](docs/captura-index-pwa.png)
+
+### sw.js generado por Workbox (precache con catalogo.json y las fotos .jpg)
+![Código fuente sw.js](docs/captura-sw.png)

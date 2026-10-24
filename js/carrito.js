@@ -28,6 +28,10 @@ function agregarAlCarrito(producto) {
 
   guardarCarrito(carrito);
   pintarCarrito();
+
+  // avisa con una notificación (función de notificaciones.js; si no cargó, no truena)
+  const cantidad = existente ? existente.cantidad : 1;
+  if (typeof notificarPedidoAgregado === "function") notificarPedidoAgregado(producto, cantidad);
 }
 
 // Sube o baja la cantidad de un producto ya en el carrito con los botones +/-;
