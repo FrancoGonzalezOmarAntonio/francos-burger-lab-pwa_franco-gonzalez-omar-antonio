@@ -25,5 +25,30 @@ module.exports = {
 	ignoreURLParametersMatching: [
 		/^utm_/,
 		/^fbclid$/
+	],
+	// Soporte offline: cualquier navegación sin internet responde con el App Shell (index.html)
+	navigateFallback: 'index.html',
+	// Archivos externos (fuentes de Google, Leaflet y mosaicos del mapa) se cachean al usarse
+	runtimeCaching: [
+		{
+			urlPattern: ({ request }) => request.mode === 'navigate',
+			handler: 'NetworkFirst',
+			options: { cacheName: 'paginas' }
+		},
+		{
+			urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\//,
+			handler: 'StaleWhileRevalidate',
+			options: { cacheName: 'fuentes' }
+		},
+		{
+			urlPattern: /^https:\/\/cdnjs\.cloudflare\.com\//,
+			handler: 'CacheFirst',
+			options: { cacheName: 'librerias' }
+		},
+		{
+			urlPattern: /\.(?:png|jpg|jpeg|webp|svg)$/,
+			handler: 'CacheFirst',
+			options: { cacheName: 'imagenes', expiration: { maxEntries: 60 } }
+		}
 	]
 };
