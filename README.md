@@ -34,7 +34,7 @@ workbox-config.js Configuración de Workbox (qué archivos se precachean)
 sw.js             Service Worker generado por Workbox (+ workbox-XXXX.js y .map)
 icons/            Logo e íconos de la PWA
 img/              15 fotografías de los productos
-docs/             Capturas de "Ver código fuente" (SSR vs CSR, index.html y sw.js)
+docs/             Capturas, reportes de Lighthouse (móvil/escritorio) y reporte de pruebas en PDF
 servidor-FAGO/    Proyecto Django (SSR): app "catalogo" con los 15 productos
 ```
 
@@ -61,7 +61,7 @@ Luego abre http://127.0.0.1:8000/catalogo/
 |---|---|---|
 | 1 | 2194f94 | 11/10/2026 |
 | 2 | 7921438 | 18/10/2026 |
-| 3 | | 25/10/2026 |
+| 3 | 977415f | 25/10/2026 |
 | 4 | (se escribe en el reporte PDF) | 01/11/2026 |
 
 > El README no puede contener el hash de su propio commit (al guardarlo cambia el hash):
@@ -82,3 +82,68 @@ Luego abre http://127.0.0.1:8000/catalogo/
 
 ### sw.js generado por Workbox (precache con catalogo.json y las fotos .jpg)
 ![Código fuente sw.js](docs/captura-sw.png)
+
+## Auditoría con Lighthouse (avance 4)
+
+Reportes generados desde la terminal contra la versión publicada en GitHub Pages:
+
+```
+npx lighthouse https://francogonzalezomarantonio.github.io/francos-burger-lab-pwa_franco-gonzalez-omar-antonio/ --output=html --output-path=./docs/lighthouse-movil.html
+npx lighthouse https://francogonzalezomarantonio.github.io/francos-burger-lab-pwa_franco-gonzalez-omar-antonio/ --preset=desktop --output=html --output-path=./docs/lighthouse-escritorio.html
+```
+
+| Reporte | Performance | Accesibilidad | Buenas prácticas | SEO |
+|---|---|---|---|---|
+| [Móvil](docs/lighthouse-movil.html) | 93 | 100 | 100 | 100 |
+| [Escritorio](docs/lighthouse-escritorio.html) | 98 | 100 | 100 | 100 |
+
+## Versión publicada (avance 4)
+
+### index.html en GitHub Pages
+![Código fuente publicado](docs/captura-pages-index.png)
+
+### manifest.json en GitHub Pages
+![manifest.json publicado](docs/captura-pages-manifest.png)
+
+### Mi app instalada en el celular
+![App instalada en el celular](docs/captura-celular.png)
+
+## Guía de instalación
+
+Franco's Burger Lab no necesita tienda de aplicaciones: se instala directo desde el navegador.
+
+### 1. Abrir la app
+
+1. En tu celular o computadora entra a
+   **https://francogonzalezomarantonio.github.io/francos-burger-lab-pwa_franco-gonzalez-omar-antonio/**
+2. Espera a que cargue el menú con las fotos. En esa primera visita el Service Worker
+   guarda la app en el dispositivo para que después funcione sin internet.
+
+### 2. Instalarla
+
+- **Android (Chrome):** toca el menú **⋮** (arriba a la derecha) → **Instalar app**
+  (o **Agregar a la pantalla principal**) → **Instalar**.
+- **iPhone (Safari):** toca el botón **Compartir** (cuadro con flecha) → **Agregar a inicio** → **Agregar**.
+- **Computadora (Chrome o Edge):** haz clic en el ícono de instalar que aparece a la derecha
+  de la barra de direcciones → **Instalar**.
+
+Aparecerá el ícono de **Burger Lab** en tu pantalla de inicio (o en el menú de inicio de Windows).
+
+### 3. Usarla
+
+1. Abre la app desde su ícono: se muestra en pantalla completa, sin la barra del navegador.
+2. **Menú:** usa los botones de categoría para ir a hamburguesas, acompañamientos o bebidas y postres,
+   y toca **Agregar** en los productos que quieras.
+3. **Tu pedido:** en el carrito sube o baja la cantidad con **+ / −** o quita un producto;
+   el total se recalcula solo. El carrito se guarda aunque cierres la app.
+4. **Sin internet:** el menú y las fotos siguen funcionando; la píldora de arriba cambia a
+   *sin conexión*. Lo que agregues se sincroniza cuando vuelve la conexión (o con **Sincronizar carrito**).
+5. **Promociones:** toca **Activar notificaciones** y acepta el permiso para recibir avisos de tus pedidos.
+6. **Ubicación:** toca **Usar mi ubicación** y acepta el permiso para ver en el mapa la ruta,
+   la distancia y el tiempo estimado hasta la sucursal de la UTH.
+
+### Desinstalar
+
+- **Android:** mantén presionado el ícono → **Desinstalar**.
+- **iPhone:** mantén presionado el ícono → **Eliminar app**.
+- **Computadora:** abre la app → menú **⋯** → **Desinstalar**.
